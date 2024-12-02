@@ -36,7 +36,7 @@ const App = () => {
                 <Header />
                 <div className="content">
                   <Routes>
-                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/inventory" element={<Inventory />} />
                     <Route path="/shipment" element={<Shipment />} />
                     <Route path="/orders" element={<Order />} />

@@ -17,7 +17,7 @@ const LoginForm = () => {
         e.preventDefault();
         try {
 
-            navigate("/");
+            navigate("/dashboard");
         } catch (err) { err }
     };
 

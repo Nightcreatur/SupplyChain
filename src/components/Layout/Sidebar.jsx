@@ -15,7 +15,7 @@ const Sidebar = () => {
         <img src={NavLogo} alt="Logo" className="w-[15vw] h-auto mb-20" />
         <nav className="space-y-2 w-[212px]">
           <NavLink
-            to="/"
+            to="/dashboard"
             className={({ isActive }) =>
               isActive
                 ? "flex items-center block text-white bg-[#003DFF] py-3 px-2 w-[10vw] sm:w-[15.56vw] rounded-md"
