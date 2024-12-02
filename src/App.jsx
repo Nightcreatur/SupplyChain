@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "./components/Layout/Sidebar";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import Header from "./components/Layout/Header";
@@ -13,21 +13,18 @@ import Stepper from "./components/Stepper";
 import ForgetStepper from "./components/Auth/ForgetPassword/Stepper";
 import ResetSuccess from "./components/Auth/ForgetPassword/ResetSuccess";
 
-
-
 const App = () => {
   return (
     <Router>
       <Routes>
         {/* Route for Login */}
-
         <Route path="/login" element={<LoginForm />} />
-        <Route path='/forget' element={<ForgetStepper />} />
+        <Route path="/forget" element={<ForgetStepper />} />
         <Route path="/signup" element={<Stepper />} />
-        <Route path='/resetSuccesful' element={<ResetSuccess />} />
+        <Route path="/resetSuccesful" element={<ResetSuccess />} />
 
-
-
+        {/* Default Route Redirect */}
+        <Route path="/" element={<Navigate to="/login" />} />
 
         {/* Routes with Layout */}
         <Route
