@@ -1,0 +1,45 @@
+/* ResetSuccess.css */
+
+.container-reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  margin: 0;
+}
+
+.reset-container {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.success-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.success-subtitle {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
