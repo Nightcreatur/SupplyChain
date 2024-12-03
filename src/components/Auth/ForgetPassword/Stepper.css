@@ -1,13 +1,13 @@
 .password-stepper-container {
   font-family: Arial, sans-serif;
   display: flex;
+  height: 100vh;
 }
 
 .password-progress-bar {
   flex: 1;
   align-items: center;
   justify-content: space-between;
-
   background-color: #003dff;
   color: white;
   padding: 20px;
@@ -53,7 +53,7 @@
   border-radius: 5px;
 
   display: flex;
-  height: 100vh;
+  height: 100vh; /* Adjusts dynamically */
   justify-content: space-evenly;
   flex-direction: column;
 }
@@ -93,4 +93,62 @@
 .password-stepper-btn-next {
   background: #007bff;
   color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .password-stepper-container {
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .password-progress-bar {
+    padding: 15px; /* Adjust padding for smaller screens */
+    font-size: 14px;
+    display: none;
+  }
+
+  .password-step-circle {
+    width: 30px; /* Smaller circles */
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+  }
+
+  .password-step-title {
+    font-size: 12px; /* Smaller text */
+  }
+
+  .password-content-box {
+    padding: 15px;
+  }
+
+  .password-stepper-btn {
+    padding: 8px 15px; /* Smaller buttons */
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .password-stepper-container {
+    gap: 10px; /* Reduce gaps further */
+  }
+
+  .password-progress-bar {
+    font-size: 12px; /* Smaller font size */
+    padding: 10px;
+    display: none;
+  }
+
+  .password-content-box {
+    padding: 10px;
+  }
+
+  .password-stepper-btn {
+    width: 100%; /* Full-width buttons for small screens */
+    margin-bottom: 10px; /* Add spacing between buttons */
+  }
+
+  .password-button-group {
+    flex-direction: column; /* Stack buttons vertically */
+  }
 }

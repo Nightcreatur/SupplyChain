@@ -45,34 +45,30 @@ const App = () => {
                 ))}
             </div>
             <div className="stepper-right-panel">
-                <TransitionGroup component={null}>
-                    <CSSTransition
-                        key={currentStep}
-                        timeout={300}
-                        classNames="step-transition"
-                    >
-                        <div className="content-box">
-                            <h2>{steps[currentStep].title}</h2>
-                            <div className="step-content">{steps[currentStep].content}</div>
-                            <div className="button-group">
-                                <button
-                                    onClick={handlePrevious}
-                                    disabled={currentStep === 0}
-                                    className="stepper-btn stepper-btn-prev"
-                                >
-                                    Previous Step
-                                </button>
-                                <button
-                                    onClick={handleNext}
-                                    disabled={currentStep === steps.length - 1}
-                                    className="stepper-btn stepper-btn-next"
-                                >
-                                    Next Step
-                                </button>
-                            </div>
-                        </div>
-                    </CSSTransition>
-                </TransitionGroup>
+
+                <div className="content-box">
+                    <h2>{steps[currentStep].title}</h2>
+                    <div className="step-content">{steps[currentStep].content}</div>
+                    <div className="button-group">
+                        <button
+                            onClick={handlePrevious}
+                            disabled={currentStep === 0}
+                            hidden={currentStep === 0 || currentStep === 4}
+                            className="stepper-btn stepper-btn-prev"
+                        >
+                            Previous Step
+                        </button>
+                        <button
+                            onClick={handleNext}
+                            disabled={currentStep === steps.length - 1}
+                            hidden={currentStep === 4}
+                            className="stepper-btn stepper-btn-next"
+                        >
+                            Next Step
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

@@ -30,7 +30,7 @@ const AddShipmentModal = ({ isOpen, onClose }) => {
       files,
     };
     console.log("Shipment Data:", shipmentData);
-    // You can send `shipmentData` to a backend or process it further here
+
     alert("Shipment added successfully!");
   };
 
@@ -121,6 +121,7 @@ const AddShipmentModal = ({ isOpen, onClose }) => {
         </form>
 
         <div className="flex justify-center space-x-2 p-4 mt-[20px]">
+          <button onClick={handleAddShipment}>demo</button>
           <Button onClick={handleAddShipment} text="Add Shipment" bgColor="#003DFF" textColor="white" />
         </div>
       </div>

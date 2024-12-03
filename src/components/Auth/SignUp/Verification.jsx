@@ -5,13 +5,13 @@ const Verification = () => {
     const [otp, setOtp] = useState(new Array(4).fill(""));
 
     const handleChange = (element, index) => {
-        const value = element.value.replace(/[^0-9]/g, ""); // Allow only numbers
-        if (value.length > 1) return; // Allow only single character
+        const value = element.value.replace(/[^0-9]/g, "");
+        if (value.length > 1) return;
         const newOtp = [...otp];
         newOtp[index] = value;
         setOtp(newOtp);
 
-        // Focus the next input if the value is entered
+
         if (value && element.nextSibling) {
             element.nextSibling.focus();
         }
@@ -39,7 +39,7 @@ const Verification = () => {
                         maxLength="1"
                         value={data}
                         onChange={(e) => handleChange(e.target, index)}
-                        onFocus={(e) => e.target.select()} // Select text when focused
+                        onFocus={(e) => e.target.select()}
                         className="otp-input"
                     />
                 ))}
@@ -49,7 +49,7 @@ const Verification = () => {
                     type="button"
                     className="verify-button"
                     onClick={handleSubmit}
-                    disabled={otp.includes("")} // Disable if OTP is incomplete
+                    disabled={otp.includes("")}
                 >
                     Create account
                 </button>

@@ -1,3 +1,4 @@
+/* General styles remain unchanged */
 .stepper-container {
   font-family: Arial, sans-serif;
   display: flex;
@@ -18,7 +19,6 @@
 
 .stepper-right-panel {
   flex: 2;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,12 +52,9 @@
 
 .content-box {
   padding: 20px;
-
   border-radius: 5px;
-
   width: 100%;
   max-width: 600px;
-
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -100,22 +97,77 @@
   cursor: not-allowed;
 }
 
-/* Transition Animations */
-.step-transition-enter {
-  opacity: 0;
-  /* transform: translateX(10%); */
+/* Responsive styles for mobile */
+@media screen and (max-width: 768px) {
+  .stepper-container {
+    flex-direction: column;
+  }
+
+  .progress-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    overflow-x: auto;
+    background-color: #0056b3;
+  }
+
+  .step {
+    margin: 0 10px;
+  }
+
+  .step-circle {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+  }
+
+  .step-title {
+    font-size: 12px;
+  }
+
+  .stepper-right-panel {
+    padding: 20px;
+  }
+
+  .content-box {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .stepper-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
 }
-.step-transition-enter-active {
-  opacity: 0;
-  transform: translateX(0);
-  transition: opacity 200ms ease, transform 400ms ease-in;
-}
-.step-transition-exit {
-  opacity: 1;
-  transform: translateX(0.1);
-}
-.step-transition-exit-active {
-  opacity: 0.1;
-  transform: translateX(-50%);
-  transition: opacity 300ms ease, transform 200ms ease-out;
+
+@media screen and (max-width: 480px) {
+  .progress-bar {
+    display: none;
+  }
+
+  .step {
+    margin: 5px;
+  }
+
+  .step-circle {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 10px;
+  }
+
+  .step-title {
+    font-size: 10px;
+  }
+
+  .stepper-btn {
+    font-size: 10px;
+
+    padding: 10px;
+  }
+
+  .content-box h2 {
+    font-size: 16px;
+  }
 }
