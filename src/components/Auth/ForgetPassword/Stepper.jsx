@@ -3,6 +3,7 @@ import './Stepper.css'
 import ForgotPassword from "./Forgetpage";
 import PasswordReset from "./ResetPassword";
 import SetNewPassword from "./SetNewPassword";
+import { motion } from "framer-motion"
 
 
 
@@ -45,7 +46,12 @@ const ForgetStepper = () => {
                     </div>
                 ))}
             </div>
-            <div className="password-stepper-right-panel">
+            <motion.div
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ opacity: "-100%" }}
+                transition={{ duration: 0.5, }}
+                className="password-stepper-right-panel">
                 <div className="password-content-box">
 
                     <p>{steps[currentStep].content}</p>
@@ -68,7 +74,7 @@ const ForgetStepper = () => {
                 </div>
 
 
-            </div>
+            </motion.div>
 
         </div>
     );

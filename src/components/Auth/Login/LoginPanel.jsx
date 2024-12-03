@@ -5,7 +5,7 @@ import Facebook from '../../../assets/images/Facebook.svg'
 import Google from '../../../assets/images/Google.svg'
 import Background from '../../../assets/images/bg.svg'
 import { useState } from 'react';
-import { Eye, EyeClosed } from 'lucide-react';
+import { motion } from "framer-motion"
 
 const LoginForm = () => {
     const [email, setEmail] = useState("");
@@ -30,7 +30,14 @@ const LoginForm = () => {
         setShown(!shown)
     }
     return (
-        <div className='login-app-container'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: .4 }}
+            exit={{ opacity: 0 }}
+
+
+            className='login-app-container'>
             <div className='login-left-panel'>
                 <img className='bg' src={Background} alt="" />
             </div>
@@ -67,7 +74,7 @@ const LoginForm = () => {
                 </div>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 
