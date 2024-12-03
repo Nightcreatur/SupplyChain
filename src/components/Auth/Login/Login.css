@@ -99,7 +99,7 @@
   flex: 1;
   background: #1e4adb;
   overflow: hidden;
-
+  height: 100vh;
   position: relative;
   color: #fff;
 }
@@ -110,7 +110,6 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: #f9f9f9;
 }
 
 /* Responsive styles for mobile */
@@ -126,6 +125,7 @@
 
   .login-right-panel {
     flex: 1;
+    margin-top: 190px;
     padding: 15px;
   }
 
