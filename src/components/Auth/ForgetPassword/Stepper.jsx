@@ -1,36 +1,33 @@
-import React, { useState } from "react";
-import './Stepper.css'
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import React from "react";
+import './Stepper.css';
 import ForgotPassword from "./Forgetpage";
 import PasswordReset from "./ResetPassword";
 import SetNewPassword from "./SetNewPassword";
-import { motion } from "framer-motion"
-
-
+import { motion } from 'framer-motion';
 
 const ForgetStepper = () => {
-    const [currentStep, setCurrentStep] = useState(0);
+    const navigate = useNavigate();
 
+    const steps = [
+        { title: "RESET PASSWORD", path: "reset-password", component: <ForgotPassword /> },
+        { title: "ENTER OTP", path: "enter-otp", component: <PasswordReset /> },
+        { title: "SET NEW PASSWORD", path: "set-new-password", component: <SetNewPassword /> },
+    ];
+
+    const currentStepIndex = steps.findIndex(step => window.location.pathname.includes(step.path));
 
     const handleNext = () => {
-        if (currentStep < steps.length - 1) {
-            setCurrentStep(currentStep + 1);
+        if (currentStepIndex < steps.length - 1) {
+            navigate(`/forget/${steps[currentStepIndex + 1].path}`);
         }
     };
 
     const handlePrevious = () => {
-        if (currentStep > 0) {
-            setCurrentStep(currentStep - 1);
+        if (currentStepIndex > 0) {
+            navigate(`/forget/${steps[currentStepIndex - 1].path}`);
         }
     };
-
-    const steps = [
-        { title: "RESET PASSWORD", content: <ForgotPassword handleNext={handleNext} handlePrevious={handlePrevious} currentStep={currentStep} /> },
-        { title: "ENTER OTP", content: <PasswordReset handleNext={handleNext} handlePrevious={handlePrevious} /> },
-        { title: "SET NEW PASSWORD", content: <SetNewPassword handleNext={handleNext} handlePrevious={handlePrevious} /> },
-
-
-    ];
-
 
     return (
         <div className="password-stepper-container">
@@ -38,7 +35,7 @@ const ForgetStepper = () => {
                 {steps.map((step, index) => (
                     <div key={index} className="step">
                         <div
-                            className={`step-circle ${currentStep === index ? "active" : ""}`}
+                            className={`step-circle ${currentStepIndex === index ? "active" : ""}`}
                         >
                             {index + 1}
                         </div>
@@ -52,30 +49,27 @@ const ForgetStepper = () => {
                 exit={{ opacity: "-100%" }}
                 transition={{ duration: 0.5, }}
                 className="password-stepper-right-panel">
-                <div className="password-content-box">
+                <Routes>
+                    {steps.map((step, index) => (
+                        <Route
+                            key={index}
+                            path={step.path}
+                            element={
+                                <div className="password-content-box">
 
-                    <p>{steps[currentStep].content}</p>
-                    {/* <div className="password-button-group"> */}
-                    {/* <button 
-                            onClick={handlePrevious}
-                            disabled={currentStep === 0}
-                            className="password-stepper-btn password-stepper-btn-prev"
-                        >
-                            Previous Step
-                        </button>
-                        <button
-                            onClick={handleNext}
-                            disabled={currentStep === steps.length - 1}
-                            className="password-stepper-btn password-stepper-btn-next"
-                        >
-                            Next Step
-                        </button> */}
-                    {/* </div> */}
-                </div>
-
-
+                                    {React.cloneElement(step.component, {
+                                        handleNext,
+                                        handlePrevious,
+                                        currentStep: currentStepIndex,
+                                    })}
+                                </div>
+                            }
+                        />
+                    ))}
+                    {/* Redirect to the first step */}
+                    <Route path="*" element={<Navigate to="reset-password" />} />
+                </Routes>
             </motion.div>
-
         </div>
     );
 };

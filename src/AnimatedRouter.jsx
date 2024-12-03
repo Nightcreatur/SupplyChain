@@ -22,7 +22,7 @@ const AnimatedRouter = () => {
             <Routes location={location} key={location.pathname}>
                 {/* Route for Login */}
                 <Route path="/login" element={<LoginForm />} />
-                <Route path="/forget" element={<ForgetStepper />} />
+                <Route path="/forget/*" element={<ForgetStepper />} />
                 <Route path="/signup/*" element={<Stepper />} /> {/* Updated */}
                 <Route path="/resetSuccesful" element={<ResetSuccess />} />
 

@@ -63,12 +63,14 @@ const Stepper = () => {
                                         <button
                                             onClick={handlePrevious}
                                             disabled={currentStepIndex === 0}
+                                            hidden={currentStepIndex === 0 || currentStepIndex === 4}
                                             className="stepper-btn stepper-btn-prev"
                                         >
                                             Previous Step
                                         </button>
                                         <button
                                             onClick={handleNext}
+                                            hidden={currentStepIndex === 4}
                                             disabled={currentStepIndex === steps.length - 1}
                                             className="stepper-btn stepper-btn-next"
                                         >
