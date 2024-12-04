@@ -97,8 +97,18 @@
   cursor: not-allowed;
 }
 
+@media screen and (min-width: 769px) {
+  .logo-img {
+    display: none;
+  }
+}
+
 /* Responsive styles for mobile */
 @media screen and (max-width: 768px) {
+  .logo-img {
+    display: flex;
+    justify-content: center;
+  }
   .stepper-container {
     flex-direction: column;
   }
@@ -142,6 +152,11 @@
 }
 
 @media screen and (max-width: 480px) {
+  .logo-img {
+    display: flex;
+    justify-content: center;
+  }
+
   .progress-bar {
     display: none;
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './UserInfo.css';
+import PhoneNumberInput from '../../Buttons/PhoneInput';
 
 const UserInfo = () => {
     return (
@@ -34,7 +35,7 @@ const UserInfo = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="phone">Phone Number</label>
-                    <input type="text" id="phone" placeholder="Phone Number" />
+                    <PhoneNumberInput />
                 </div>
 
             </form>

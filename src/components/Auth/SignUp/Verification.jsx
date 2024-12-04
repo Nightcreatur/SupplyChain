@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './Verification.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Verification = () => {
+    const navigate = useNavigate();
     const [otp, setOtp] = useState(new Array(4).fill(""));
 
     const handleChange = (element, index) => {
@@ -23,6 +25,7 @@ const Verification = () => {
 
     const handleSubmit = () => {
         alert(`OTP entered: ${otp.join("")}`);
+        navigate('/success')
     };
 
     return (
@@ -45,14 +48,14 @@ const Verification = () => {
                 ))}
             </div >
             <div className="confirm-btn">
-                <button
+                <Link to={'/success'}><button
                     type="button"
                     className="verify-button"
                     onClick={handleSubmit}
                     disabled={otp.includes("")}
                 >
                     Create account
-                </button>
+                </button></Link>
                 <button
                     type="button"
                     className="resend-button"

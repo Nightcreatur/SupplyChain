@@ -13,6 +13,7 @@ import Stepper from "./components/Stepper";
 import ForgetStepper from "./components/Auth/ForgetPassword/Stepper";
 import ResetSuccess from "./components/Auth/ForgetPassword/ResetSuccess";
 import { AnimatePresence } from "framer-motion";
+import Successful from "./components/Auth/SignUp/Succesfull";
 
 const AnimatedRouter = () => {
     const location = useLocation();
@@ -25,6 +26,7 @@ const AnimatedRouter = () => {
                 <Route path="/forget/*" element={<ForgetStepper />} />
                 <Route path="/signup/*" element={<Stepper />} /> {/* Updated */}
                 <Route path="/resetSuccesful" element={<ResetSuccess />} />
+                <Route path="/success" element={<Successful />} />
 
                 {/* Default Route Redirect */}
                 <Route path="/" element={<Navigate to="/login" />} />

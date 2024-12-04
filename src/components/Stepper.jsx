@@ -6,6 +6,8 @@ import TermsAndPolicies from "./Auth/SignUp/TermsAndPolicies";
 import Verification from "./Auth/SignUp/Verification";
 import { useNavigate, Routes, Route, Navigate } from "react-router-dom";
 import { motion } from "framer-motion"
+import Logo from '../assets/images/logo.svg'
+import Successful from './Auth/SignUp/Succesfull';
 
 const Stepper = () => {
     const navigate = useNavigate();
@@ -16,6 +18,7 @@ const Stepper = () => {
         { title: "Business Details", path: "business-details", component: <BusinessDetails /> },
         { title: "Terms & Policies", path: "terms-policies", component: <TermsAndPolicies /> },
         { title: "Verification", path: "verification", component: <Verification /> },
+        { title: 'Sucessful', path: "sucessful", component: <Successful /> }
     ];
 
     const currentStepIndex = steps.findIndex(step => window.location.pathname.includes(step.path));
@@ -57,6 +60,9 @@ const Stepper = () => {
                             path={step.path}
                             element={
                                 <div className="content-box">
+                                    <div className='logo-img'>
+                                        <img src={Logo} alt="" />
+                                    </div>
                                     <h2>{step.title}</h2>
                                     <div className="step-content">{step.component}</div>
                                     <div className="button-group">
@@ -66,7 +72,7 @@ const Stepper = () => {
                                             hidden={currentStepIndex === 0 || currentStepIndex === 4}
                                             className="stepper-btn stepper-btn-prev"
                                         >
-                                            Previous Step
+                                            Previous St ep
                                         </button>
                                         <button
                                             onClick={handleNext}
